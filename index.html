@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <span>Total:0</span>
+        <button id="btn">CLICK</button>
+    
+
+    <script>
+        const span = document.querySelector("span");
+        const btn = document.getElementById("btn");
+        let count = 0;
+
+        function btn_cnt(){
+            console.log("clicked")
+            count++
+            //span.innerText = "Total:" + count;
+            span.innerText = `Total:${count}`;
+        }
+
+        btn.addEventListener("click", btn_cnt);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReactJS_addEvent</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script>
+      //프로퍼티를 통해서 이벤트를 추가 할 수 있다.
+      const root = document.getElementById("root");
+      const h3tag = React.createElement(
+        "h3",
+        {
+          onMouseEnter: () => console.log("mouse enter"),
+        },
+        "Hello"
+      );
+      const btn = React.createElement(
+        "button",
+        {
+          onClick: () => console.log("i'm cliked"),
+        },
+        "click me"
+      );
+      //두개를 동시에 랜더하고싶다면
+      const container = React.createElement("div", null, [h3tag, btn]);
+      //첫 번째 인수: 엘리먼트의 타입을 나타내는 문자열 또는 React 컴포넌트입니다. 
+      //여기서는 "div"라는 문자열을 사용하여 <div> 엘리먼트를 나타냅니다.
+
+      //두 번째 인수: 엘리먼트의 속성 (props)을 나타내는 객체입니다. 
+      //여기서는 null을 사용하여 어떠한 속성도 설정하지 않습니다.
+      
+      //세 번째 인수: 엘리먼트 내에 포함될 자식 요소 또는 자식 엘리먼트들을 나타내는 배열입니다. 
+      //여기서는 h3tag와 btn이라는 두 개의 React 엘리먼트를 배열로 묶어서 전달합니다.
+
+      // ReactDOM.render(btn, root);
+      ReactDOM.render(container, root);
+    </script>
+  </body>
+</html>

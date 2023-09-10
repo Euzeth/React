@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReactJS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <!--1. react먼저 import -->
+    <script>
+      //React 애플리케이션의 모든 컴포넌트가 이 root 요소 내에서 렌더링됩니다. 
+      //즉, React 애플리케이션의 모든 UI 컴포넌트는 이 root 요소를 기준으로 생성되고 렌더링
+      const root = document.getElementById("root");
+      const spantag = React.createElement(
+        //첫 번째 인수: 엘리먼트의 타입을 나타내는 문자열 또는 React 컴포넌트입니다. 
+        //여기서는 "span"이라는 문자열을 사용하여 <span> 엘리먼트를 나타냅니다.
+        "span",
+       
+        //두 번째 인수: 엘리먼트의 속성 (props)을 포함하는 객체입니다. 
+        //여기서는 id 속성을 "sexy-span"으로 설정하고, style 속성을 객체로 설정하여 텍스트 색상을 빨간색으로 지정합니다.
+        { id: "sexy-span", style: { color: "red" } },
+       
+        //세 번째 인수: 엘리먼트 내에 포함될 자식 요소 또는 텍스트입니다. 여기서는 "Hello"라는 텍스트를 포함하고 있습니다.
+        "Hello"
+      );
+
+      //react를 import 했기 때문에 create함수를 가진 React object를 사용할 수 있다.
+      //안에들어갈 내용은 태그 이름과 같아야 한다.
+      //ReactJs가 body안에 HTML을 생성(reactdom libray필요)
+      //1.argument는 태그 이름 두번째는 프로퍼티가 들어갈 수 있다.(classname, id,이벤트)
+      //세번째는 내용
+
+      ReactDOM.render(spantag, root);
+      //render react element를 가지고 html로 만들어 배치한다.(사용자에게 보여준다.)
+
+      //결론:reactjs는 유저에게 보여질 내용을 컨트롤 할 수 있다.
+      //
+    </script>
+  </body>
+</html>

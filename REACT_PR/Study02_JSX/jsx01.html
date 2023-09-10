@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <!-- 편리하기 위하여 createElement대신 jsx사용 -->
+  <!-- 1.리액트 요소를 만들 수 있다. 2.자바스크립트의 확장문법 -->
+  <!-- html과 비슷해서 편리한 것 대신 번역 프로그램 babel이 필요하다 -->
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      //프로퍼티를 통해서 이벤트를 추가 할 수 있다.
+      //JSX를 사용하는 경우 코드가 더 직관적이고 가독성이 좋아지므로 일반적으로 더 많이 사용
+      const root = document.getElementById("root");
+      const Title = (
+        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+          hello i was h3tag
+        </h3>
+      );
+      //id는 속성은 JSX에서 요소를 고유하게 식별하고 스타일링 및 DOM 조작에 사용, 특정 요소에 대한 유일한 식별자로 사용
+
+      //JSX 문법을 사용하여 <button> 엘리먼트를 나타내는 React 컴포넌트인 Button을 정의
+      const Button = (
+        <button
+          style={{ backgroundColor: "red" }}
+          onClick={() => {
+            console.log("i'm cliked");
+          }}
+        >
+          click me
+        </button>
+      );
+      //   const h3tag = React.createElement(
+      //     "h3",
+      //     {
+      //       onMouseEnter: () => console.log("mouse enter"),
+      //     },
+      //     "Hello"
+      //   );
+      //   const btn = React.createElement(
+      //     "button",
+      //     {
+      //       onClick: () => console.log("i'm cliked"),
+      //     },
+      //     "click me"
+      //   );
+
+      const container = React.createElement("div", null, [Title, Button]);
+
+      ReactDOM.render(container, root);
+    </script>
+  </body>
+</html>
